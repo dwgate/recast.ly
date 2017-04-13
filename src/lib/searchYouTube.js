@@ -3,6 +3,7 @@ var searchYouTube = (options, callback) => {
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search',
     type: 'GET',
+    videoEmbeddable: true,
 
     data: {
       query: options.query,
@@ -22,7 +23,7 @@ var searchYouTube = (options, callback) => {
       console.log(error.responseJSON.error.message);
     }
 
-  })
+  });
 
 };
 
