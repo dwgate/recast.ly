@@ -2,7 +2,6 @@ var VideoListEntry = (props) => {
   var description = props.video.snippet.description;
   var url = props.video.snippet.thumbnails.default.url;
   var title = props.video.snippet.title;
-  console.log('this is: ' + this);
 
 
   return(
