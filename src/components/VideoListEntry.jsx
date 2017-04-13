@@ -1,12 +1,10 @@
-class VideoListEntry extends React.Component {
-
-  render() {
-    var title = this.props.videoInfo.title;
-    var description = this.props.videoInfo.description;
-    var url = this.props.videoInfo.thumbnails.default.url;
+var VideoListEntry = (props) => {
+  var description = props.video.snippet.description;
+  var url = props.video.snippet.thumbnails.default.url;
+  var title = props.video.snippet.title;
 
 
-    return(
+  return(
       <div className="video-list-entry">
         <div className="media-left media-middle">
           <img className="media-object" src={url} alt="" />
@@ -16,10 +14,8 @@ class VideoListEntry extends React.Component {
           <div className="video-list-entry-detail">{description}</div>
         </div>
       </div>
-    );
-  }
-}
-
+  );
+};
 
 
 // PropTypes tell other developers what `props` a component expects

@@ -1,22 +1,16 @@
-class VideoList extends React.Component {
- 
-  render(){
-    var videos = [];
+var VideoList = (props) => {
+  var videoCollection = [];
+  
+  props.videos.forEach((item) => {
+      videoCollection.push(<VideoListEntry video={item} state={props.state} />);
+  });
 
-    this.props.videos.forEach((video) => {
-      videos.push(<VideoListEntry videoInfo={video.snippet}/>)
-    });
-
-
-
-
-    return(
-      <div className="video-list media">
-      {videos}
-      </div>
-      );
-    }
-}
+  return (
+    <div className="video-list media">
+        {videoCollection}
+    </div>
+  );
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

@@ -10,8 +10,15 @@ describe('App', function() {
 
   beforeEach(function() {
     app = renderIntoDocument(
-      <App searchYouTube={() => {}}/>
+      <App exampleVideos={exampleVideoData} />
     );
+
+
+
+    //this is the original beforeEach - searchYoutube functionality not built yet
+    // app = renderIntoDocument(
+    //   <App searchYouTube={() => {}}/>
+    // );
   });
 
   it('should be a stateful class component', function() {
