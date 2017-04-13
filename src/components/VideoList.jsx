@@ -2,7 +2,7 @@ var VideoList = (props) => {
   var videoCollection = [];
   
   props.videos.forEach((item) => {
-      videoCollection.push(<VideoListEntry video={item} state={props.state} />);
+      videoCollection.push(<VideoListEntry titleClick={props.titleClick} video={item} state={props.state} />);
   });
 
   return (

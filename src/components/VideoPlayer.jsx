@@ -2,7 +2,7 @@ var VideoPlayer = (props) => {
   var title = props.video.snippet.title;
   var description = props.video.snippet.description;
   var src = 'https://www.youtube.com/embed/' + props.video.id.videoId;
-  // console.log(props.state);
+  console.log('changing video!');
 
   return (
     <div className="video-player">
