@@ -14,7 +14,6 @@ var searchYouTube = (options, callback) => {
     },
 
     success: function(data) {
-      debugger;
       console.log('found some results!');
       console.log(data);
       callback(data);

@@ -12,7 +12,22 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    this.props.search({query: 'circa survive', max: 5, key: window.YOUTUBE_API_KEY}, this.handleSearch.bind(this));
+    var safeSearch = _.debounce(this.props.search, 2000);
+
+    // this.props.search({query: 'circa survive', max: 5, key: window.YOUTUBE_API_KEY}, this.handleSearch.bind(this));
+    safeSearch({query: 'circa survive', max: 5, key: window.YOUTUBE_API_KEY}, this.handleSearch.bind(this));
+  }
+
+  handleUserInput(input) {
+    var options = {
+      query: input,
+      max: 5,
+      key: window.YOUTUBE_API_KEY
+    };
+
+    this.props.search(options, this.handleSearch.bind(this));    
+
+
   }
 
   handleSearch(data) {
@@ -31,7 +46,7 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <Nav />
+        <Nav handleSearch={this.handleUserInput.bind(this)} />
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo} state={this.state} />
         </div>
