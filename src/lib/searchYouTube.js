@@ -6,15 +6,19 @@ var searchYouTube = (options, callback) => {
     videoEmbeddable: true,
 
     data: {
-      query: options.query,
-      max: options.max,
+      type: 'video',
+      q: options.query,
+      maxResults: options.max,
       key: options.key,
       part: 'snippet'
     },
 
     success: function(data) {
+      debugger;
       console.log('found some results!');
-      callback(data.items);
+      console.log(data);
+      callback(data);
+      return data.items;
     },
 
     error: function(error) {

@@ -3,10 +3,23 @@ class App extends React.Component {
     super(props)
 
     this.state = {
+      //currentVideo needs to be replaced with some empty initial video
       currentVideo: this.props.exampleVideos[0],
       videoList: this.props.exampleVideos
     }
 
+  }
+
+
+  componentDidMount() {
+    this.props.search({query: 'circa survive', max: 5, key: window.YOUTUBE_API_KEY}, this.handleSearch.bind(this));
+  }
+
+  handleSearch(data) {
+    this.setState({
+      currentVideo: data.items[0],
+      videoList: data.items
+    });
   }
 
   handleClick(video) {
